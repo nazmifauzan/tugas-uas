@@ -1,0 +1,130 @@
+#include <iostream>
+using namespace std;
+
+
+int hp = 20, mp = 20, enemy_hp = 35, walk;
+
+void lose (void)
+{
+	cout << "You lose." << endl;
+	cout << "============" << endl;
+	cout << "bad ending" << endl;
+	cout << "============" << endl;
+	cout << " raja iblis mengalahkan mu dan menguasai kota" << endl;
+	hp = 20;
+	mp = 20;
+	enemy_hp = 20;
+	}
+
+void win (void)
+{
+	cout << "You win." << endl;
+	cout << "============" << endl;
+	cout << "happy ending" << endl;
+	cout << "============" << endl;
+	cout << " kamu mengalahkan raja iblis, kota terselamatkan dan kamu diangkat menjadi pahlawan" << endl;
+	hp = 20;
+	mp = 20;
+	enemy_hp = 20;
+}
+
+
+int main()
+{
+    string nama, usia, asal_kota;
+    cout << "nama petualang :" ;
+    cin >> nama;
+    cout << endl;
+
+    cout << "usia petualang :" ;
+    cin >> usia;
+    cout << endl;
+
+    cout << "asal kota petualang :" ;
+    cin >> asal_kota;
+    cout << endl;
+
+    cout << "kamu adalah seorang petualang dari negri yang jauh\n" ;
+    cout << "kamu adalah petualang yang sangat berpengalaman dan mendapat pernghargaan sebagai pahlawan dari berbagai kerajaan\n";
+    cout << "suatu hari, kamu mendapat kabar bahwa kota yang kamu tuju sedang di invasi oleh raja iblis \n";
+    cout << "kamu pun bergegas menuju kota \n\n";
+
+    cout << "kamu bersiap untuk melawan raja iblis\n\n";
+
+    cout << "=========================================\n";
+    cout << "================BERTARUNG================\n";
+    cout << "=========================================\n";
+    cout << endl;
+
+    cout << "kalahkan farhan kebab (raja iblis)" << endl;
+    cout << endl;
+
+label:
+cout << "enemy hp: " << enemy_hp << endl << "hp: " << hp << endl << "mp: " << mp << endl << "(1) serangan biasa" << endl << "(2) sihir kecap" <<endl << "(3) Summon secret power (the abatukam)" << endl;
+	cin >> walk;
+	system("cls");
+	cout << "Status:" << endl;
+
+	if (walk == 1)
+	{
+		cout << "You attack the enemy with your sword." << endl;
+		enemy_hp -= 1;
+		if (enemy_hp < 0)
+{
+	win();
+	return 0;
+}
+
+if (hp < 0)
+{
+	lose();
+	return 0;
+}
+	cout << "The enemy cast a Magic Missle." << endl << endl;
+hp -= 2;
+	}
+
+	if (walk == 2)
+	{
+	cout << "You cast a devistating Magic Missle." << endl;
+		enemy_hp -= 2;
+		mp -= 1;
+		if (enemy_hp < 0)
+{
+	win();
+	return 0;
+}
+
+if (hp < 0)
+{
+	lose();
+	return 0;
+}
+	cout << "The enemy used his sword." << endl << endl;
+hp -= 1;
+	}
+
+	if (walk == 3)
+	{
+	cout << "You summoned Ultima!" << endl;
+		enemy_hp -= 10;
+		mp -= 15;
+		hp -= 1;
+		if (enemy_hp < 0)
+{
+	win();
+	return 0;
+}
+
+if (hp < 0)
+{
+	lose();
+	return 0;
+}
+	cout << "The enemy used his sword." << endl << endl;
+hp -= 1;
+	}
+
+	goto label;
+
+}
